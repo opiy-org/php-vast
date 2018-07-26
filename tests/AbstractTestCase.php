@@ -1,6 +1,6 @@
 <?php
 
-namespace Opiy\Vast;
+namespace OpiyOrg\Vast;
 
 abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
 {

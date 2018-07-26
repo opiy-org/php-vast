@@ -1,8 +1,8 @@
 <?php
 
-namespace Opiy\Vast\Creative\Wrapper;
+namespace OpiyOrg\Vast\Creative\Wrapper;
 
-use Opiy\Vast\Creative\AbstractLinearCreative;
+use OpiyOrg\Vast\Creative\AbstractLinearCreative;
 
 class Linear extends AbstractLinearCreative
 {

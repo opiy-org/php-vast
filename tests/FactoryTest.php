@@ -1,6 +1,6 @@
 <?php
 
-namespace Opiy\Vast;
+namespace OpiyOrg\Vast;
 
 class FactoryTest extends AbstractTestCase
 {
@@ -11,7 +11,7 @@ class FactoryTest extends AbstractTestCase
 
         // check if loaded
         $this->assertInstanceOf(
-            'Opiy\Vast\Document',
+            'OpiyOrg\Vast\Document',
             $vastDocument
         );
 
@@ -41,7 +41,7 @@ class FactoryTest extends AbstractTestCase
         $vastDocument = $factory->fromString(file_get_contents(__DIR__ . '/vast.xml'));
 
         $this->assertInstanceOf(
-            'Opiy\Vast\Document',
+            'OpiyOrg\Vast\Document',
             $vastDocument
         );
     }

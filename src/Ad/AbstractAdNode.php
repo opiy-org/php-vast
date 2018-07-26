@@ -1,9 +1,9 @@
 <?php
 
-namespace Opiy\Vast\Ad;
+namespace OpiyOrg\Vast\Ad;
 
-use Opiy\Vast\Creative\AbstractLinearCreative;
-use Opiy\Vast\Document\AbstractNode;
+use OpiyOrg\Vast\Creative\AbstractLinearCreative;
+use OpiyOrg\Vast\Document\AbstractNode;
 
 abstract class AbstractAdNode extends AbstractNode
 {

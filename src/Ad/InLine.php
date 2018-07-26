@@ -1,9 +1,9 @@
 <?php
 
-namespace Opiy\Vast\Ad;
+namespace OpiyOrg\Vast\Ad;
 
-use Opiy\Vast\Creative\AbstractLinearCreative;
-use Opiy\Vast\Creative\InLine\Linear;
+use OpiyOrg\Vast\Creative\AbstractLinearCreative;
+use OpiyOrg\Vast\Creative\InLine\Linear;
 
 class InLine extends AbstractAdNode
 {
@@ -12,7 +12,7 @@ class InLine extends AbstractAdNode
      *
      * @param string $value
      *
-     * @return \Opiy\Vast\Ad\InLine
+     * @return \OpiyOrg\Vast\Ad\InLine
      */
     public function setAdTitle($value)
     {
@@ -26,7 +26,7 @@ class InLine extends AbstractAdNode
      */
     protected function buildCreativeClassName($type)
     {
-        return '\\Opiy\\Vast\\Creative\\InLine\\' . $type;
+        return '\\OpiyOrg\\Vast\\Creative\\InLine\\' . $type;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Opiy\Vast\Document;
+namespace OpiyOrg\Vast\Document;
 
 abstract class AbstractNode
 {

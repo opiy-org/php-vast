@@ -1,6 +1,6 @@
 <?php
 
-namespace Opiy\Vast\Creative\InLine\Linear;
+namespace OpiyOrg\Vast\Creative\InLine\Linear;
 
 class MediaFile
 {

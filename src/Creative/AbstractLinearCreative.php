@@ -1,8 +1,8 @@
 <?php
 
-namespace Opiy\Vast\Creative;
+namespace OpiyOrg\Vast\Creative;
 
-use Opiy\Vast\Document\AbstractNode;
+use OpiyOrg\Vast\Document\AbstractNode;
 
 abstract class AbstractLinearCreative extends AbstractNode
 {
