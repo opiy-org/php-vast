@@ -297,7 +297,7 @@ abstract class AbstractLinearCreative extends AbstractNode
 
 
     /**
-     * Get id for Ad element
+     * Get id
      *
      * @return string
      */
@@ -307,7 +307,7 @@ abstract class AbstractLinearCreative extends AbstractNode
     }
 
     /**
-     * Set 'id' attribute of 'ad' element
+     * Set 'id' attribute
      *
      * @param string $id
      *
@@ -319,5 +319,21 @@ abstract class AbstractLinearCreative extends AbstractNode
 
         return $this;
     }
+
+
+    /**
+     * Set 'adid' attribute
+     *
+     * @param string $id
+     *
+     * @return AbstractLinearCreative
+     */
+    public function setAdId($id)
+    {
+        $this->linearCreativeDomElement->setAttribute('adid', $id);
+
+        return $this;
+    }
+
 
 }
