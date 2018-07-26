@@ -1,8 +1,8 @@
 <?php
 
-namespace Sokil\Vast\Creative\Wrapper;
+namespace Opiy\Vast\Creative\Wrapper;
 
-use Sokil\Vast\Creative\AbstractLinearCreative;
+use Opiy\Vast\Creative\AbstractLinearCreative;
 
 class Linear extends AbstractLinearCreative
 {

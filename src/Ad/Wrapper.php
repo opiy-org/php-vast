@@ -1,6 +1,6 @@
 <?php
 
-namespace Sokil\Vast\Ad;
+namespace Opiy\Vast\Ad;
 
 class Wrapper extends AbstractAdNode
 {
@@ -21,13 +21,13 @@ class Wrapper extends AbstractAdNode
      */
     protected function buildCreativeClassName($type)
     {
-        return '\\Sokil\\Vast\\Creative\\Wrapper\\' . $type;
+        return '\\Opiy\\Vast\\Creative\\Wrapper\\' . $type;
     }
 
     /**
      * Create Linear creative
      *
-     * @return \Sokil\Vast\Creative\Wrapper\Linear
+     * @return \Opiy\Vast\Creative\Wrapper\Linear
      */
     public function createLinearCreative()
     {

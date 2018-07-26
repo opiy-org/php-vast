@@ -1,9 +1,9 @@
 <?php
 
-namespace Sokil\Vast\Ad;
+namespace Opiy\Vast\Ad;
 
-use Sokil\Vast\Creative\AbstractLinearCreative;
-use Sokil\Vast\Creative\InLine\Linear;
+use Opiy\Vast\Creative\AbstractLinearCreative;
+use Opiy\Vast\Creative\InLine\Linear;
 
 class InLine extends AbstractAdNode
 {
@@ -12,7 +12,7 @@ class InLine extends AbstractAdNode
      *
      * @param string $value
      *
-     * @return \Sokil\Vast\Ad\InLine
+     * @return \Opiy\Vast\Ad\InLine
      */
     public function setAdTitle($value)
     {
@@ -26,7 +26,7 @@ class InLine extends AbstractAdNode
      */
     protected function buildCreativeClassName($type)
     {
-        return '\\Sokil\\Vast\\Creative\\InLine\\' . $type;
+        return '\\Opiy\\Vast\\Creative\\InLine\\' . $type;
     }
 
     /**

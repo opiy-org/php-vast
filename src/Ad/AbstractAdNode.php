@@ -1,9 +1,9 @@
 <?php
 
-namespace Sokil\Vast\Ad;
+namespace Opiy\Vast\Ad;
 
-use Sokil\Vast\Creative\AbstractLinearCreative;
-use Sokil\Vast\Document\AbstractNode;
+use Opiy\Vast\Creative\AbstractLinearCreative;
+use Opiy\Vast\Document\AbstractNode;
 
 abstract class AbstractAdNode extends AbstractNode
 {

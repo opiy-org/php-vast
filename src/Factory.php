@@ -1,6 +1,6 @@
 <?php
 
-namespace Sokil\Vast;
+namespace Opiy\Vast;
 
 class Factory
 {

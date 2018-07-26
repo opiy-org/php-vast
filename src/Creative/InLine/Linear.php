@@ -1,9 +1,9 @@
 <?php
 
-namespace Sokil\Vast\Creative\InLine;
+namespace Opiy\Vast\Creative\InLine;
 
-use Sokil\Vast\Creative\AbstractLinearCreative;
-use Sokil\Vast\Creative\InLine\Linear\MediaFile;
+use Opiy\Vast\Creative\AbstractLinearCreative;
+use Opiy\Vast\Creative\InLine\Linear\MediaFile;
 
 class Linear extends AbstractLinearCreative
 {

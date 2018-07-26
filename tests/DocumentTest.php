@@ -1,8 +1,8 @@
 <?php
 
-namespace Sokil\Vast;
+namespace Opiy\Vast;
 
-use Sokil\Vast\Ad\InLine;
+use Opiy\Vast\Ad\InLine;
 
 class DocumentTest extends AbstractTestCase
 {
@@ -13,7 +13,7 @@ class DocumentTest extends AbstractTestCase
     {
         $factory = new Factory();
         $document = $factory->create('2.0');
-        $this->assertInstanceOf('\\Sokil\\Vast\\Document', $document);
+        $this->assertInstanceOf('\\Opiy\\Vast\\Document', $document);
 
         // insert Ad section
         $ad1 = $document
@@ -51,7 +51,7 @@ class DocumentTest extends AbstractTestCase
     {
         $factory = new Factory();
         $document = $factory->create('2.0');
-        $this->assertInstanceOf('\Sokil\Vast\Document', $document);
+        $this->assertInstanceOf('\Opiy\Vast\Document', $document);
 
         // insert Ad section
         $ad1 = $document
@@ -82,7 +82,7 @@ class DocumentTest extends AbstractTestCase
 
         /** @var InLine $adSection */
         $adSection = $adSections[0];
-        $this->assertInstanceOf('\\Sokil\\Vast\\Ad\\InLine', $adSection);
+        $this->assertInstanceOf('\\Opiy\\Vast\\Ad\\InLine', $adSection);
 
         $this->assertSame('ad1', $adSection->getId());
     }
@@ -245,7 +245,7 @@ class DocumentTest extends AbstractTestCase
     {
         $factory = new Factory();
         $document = $factory->create('2.0');
-        $this->assertInstanceOf('\Sokil\Vast\Document', $document);
+        $this->assertInstanceOf('\Opiy\Vast\Document', $document);
 
         // insert Ad section
         $document
@@ -289,7 +289,7 @@ class DocumentTest extends AbstractTestCase
     {
         $factory = new Factory();
         $document = $factory->create('2.0');
-        $this->assertInstanceOf('\Sokil\Vast\Document', $document);
+        $this->assertInstanceOf('\Opiy\Vast\Document', $document);
 
         // insert Ad section
         $wrapperAd = $document
@@ -315,7 +315,7 @@ class DocumentTest extends AbstractTestCase
     {
         $factory = new Factory();
         $document = $factory->create('2.0');
-        $this->assertInstanceOf('\Sokil\Vast\Document', $document);
+        $this->assertInstanceOf('\Opiy\Vast\Document', $document);
 
         // insert Ad section
         $ad1 = $document
@@ -340,7 +340,7 @@ class DocumentTest extends AbstractTestCase
     {
         $factory = new Factory();
         $document = $factory->create('2.0');
-        $this->assertInstanceOf('\Sokil\Vast\Document', $document);
+        $this->assertInstanceOf('\Opiy\Vast\Document', $document);
 
         // insert Ad section
         $ad1 = $document
@@ -409,7 +409,7 @@ class DocumentTest extends AbstractTestCase
         $document = $factory->create('2.0');
 
         $this->assertInstanceOf(
-            'Sokil\Vast\Document',
+            'Opiy\Vast\Document',
             $document::fromString('<?xml version="1.0" encoding="UTF-8"?><VAST version="2.0"/>')
         );
     }
@@ -422,7 +422,7 @@ class DocumentTest extends AbstractTestCase
         $factory = new Factory();
         $document = $factory->create('2.0');
 
-        $this->assertInstanceOf('Sokil\Vast\Document', $document::fromFile(__DIR__ . '/vast.xml'));
+        $this->assertInstanceOf('Opiy\Vast\Document', $document::fromFile(__DIR__ . '/vast.xml'));
     }
 
 }

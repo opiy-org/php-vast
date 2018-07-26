@@ -1,8 +1,8 @@
 <?php
 
-namespace Sokil\Vast\Creative;
+namespace Opiy\Vast\Creative;
 
-use Sokil\Vast\Document\AbstractNode;
+use Opiy\Vast\Document\AbstractNode;
 
 abstract class AbstractLinearCreative extends AbstractNode
 {

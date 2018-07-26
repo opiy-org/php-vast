@@ -1,9 +1,9 @@
 <?php
 
-namespace Sokil\Vast;
+namespace Opiy\Vast;
 
-use Sokil\Vast\Ad\AbstractAdNode;
-use Sokil\Vast\Document\AbstractNode;
+use Opiy\Vast\Ad\AbstractAdNode;
+use Opiy\Vast\Document\AbstractNode;
 
 class Document extends AbstractNode
 {
@@ -82,7 +82,7 @@ class Document extends AbstractNode
     private function createAdSection($type)
     {
         // Check Ad type
-        $adTypeClassName = '\\Sokil\\Vast\\Ad\\' . $type;
+        $adTypeClassName = '\\Opiy\\Vast\\Ad\\' . $type;
         if (!class_exists($adTypeClassName)) {
             throw new \InvalidArgumentException(sprintf('Ad type %s not supported', $type));
         }
@@ -107,7 +107,7 @@ class Document extends AbstractNode
     /**
      * Create inline Ad section
      *
-     * @return \Sokil\Vast\Ad\InLine
+     * @return \Opiy\Vast\Ad\InLine
      */
     public function createInLineAdSection()
     {
@@ -117,7 +117,7 @@ class Document extends AbstractNode
     /**
      * Create Wrapper Ad section
      *
-     * @return \Sokil\Vast\Ad\Wrapper
+     * @return \Opiy\Vast\Ad\Wrapper
      */
     public function createWrapperAdSection()
     {
@@ -156,7 +156,7 @@ class Document extends AbstractNode
                 $type = $node->tagName;
 
                 // create ad section
-                $adTypeClassName = '\\Sokil\\Vast\\Ad\\' . $type;
+                $adTypeClassName = '\\Opiy\\Vast\\Ad\\' . $type;
                 if (!class_exists($adTypeClassName)) {
                     throw new \Exception('Ad type ' . $type . ' not supported');
                 }

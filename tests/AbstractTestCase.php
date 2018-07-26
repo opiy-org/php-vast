@@ -1,6 +1,6 @@
 <?php
 
-namespace Sokil\Vast;
+namespace Opiy\Vast;
 
 abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
 {

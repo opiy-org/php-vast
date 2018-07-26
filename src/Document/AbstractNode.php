@@ -1,6 +1,6 @@
 <?php
 
-namespace Sokil\Vast\Document;
+namespace Opiy\Vast\Document;
 
 abstract class AbstractNode
 {
