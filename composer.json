@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sokil\\Vast\\": ["src/", "tests/"]
+            "OpiyOrg\\Vast\\": ["src/", "tests/"]
         }
     },
     "scripts": {
