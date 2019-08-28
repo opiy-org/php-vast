@@ -5,17 +5,24 @@ namespace OpiyOrg\Vast;
 abstract class AbstractTestCase extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @param string $expectedXml
-     * @param Document $actualVastDocument
+     * @param string $filename
+     *
+     * @return string
      */
-    protected function assertVastXmlEquals($expectedXml, Document $actualVastDocument)
+    private function getFullXMLFixturePath($filename)
     {
-        $actualXml = str_replace(
-            array("\r", "\n"),
-            '',
-            (string)$actualVastDocument
-        );
+        return __DIR__ . '/data/' . $filename;
+    }
 
-        $this->assertEquals($expectedXml, $actualXml);
+    /**
+     * @param $expectedXml
+     * @param $actualXml
+     */
+    protected function assertVastDocumentSameWithXmlFixture($expectedXmlFixturePath, Document $actualXmlDomDocument)
+    {
+        $this->assertXmlStringEqualsXmlFile(
+            $this->getFullXMLFixturePath($expectedXmlFixturePath),
+            $actualXmlDomDocument->toDomDocument()
+        );
     }
 }
