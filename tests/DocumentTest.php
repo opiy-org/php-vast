@@ -481,7 +481,7 @@ class DocumentTest extends AbstractTestCase
         $factory = new Factory();
         $document = $factory->create('2.0');
 
-        $this->assertInstanceOf('OpiyOrg\Vast\Document', $document::fromFile(__DIR__ . '/vast.xml'));
+        $this->assertInstanceOf('OpiyOrg\Vast\Document', $document::fromFile(__DIR__ . '/data/vast.xml'));
     }
 
     /**

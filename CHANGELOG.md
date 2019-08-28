@@ -1,3 +1,14 @@
+## 0.5.4 (2019-08-28)
+  * add custom tag
+## 0.5.3 (2019-05-06)
+  * UniversalAdId added due to VAST 4.0 specification. UniversalAdId required in response beginning with VAST 4.0 (paragraph 3.7.1)
+
+## 0.5.2 (2019-03-23)
+  * Add offset to progress event tracking. See specification 2.3.2.3 "Progress Event".
+
+## 0.5.1 (2018-10-31)
+  * Allow specify `adParameter` and `apiFramework`. 
+
 ## 0.4.8 (2018-06-29)
   * Fixed 'Document::getAdSections()'. Previously root DOM element was set to first child which may be text node. Now it points to `InLine` or `Wrapper` element.
   * Now may be specified id of `Impression` in `AbstractAdNode::addImpression`

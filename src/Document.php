@@ -3,14 +3,31 @@
 namespace OpiyOrg\Vast;
 
 use OpiyOrg\Vast\Ad\AbstractAdNode;
+use OpiyOrg\Vast\Ad\InLine;
+use OpiyOrg\Vast\Ad\Wrapper;
 use OpiyOrg\Vast\Document\AbstractNode;
 
 class Document extends AbstractNode
 {
     /**
+     * @private
+     */
+    const AD_SUB_ELEMENT_INLINE = 'InLine';
+
+    /**
+     * @private
+     */
+    const AD_SUB_ELEMENT_WRAPPER = 'Wrapper';
+
+    /**
      * @var \DOMDocument
      */
     private $domDocument;
+
+    /**
+     * @var ElementBuilder
+     */
+    private $vastElementBuilder;
 
     /**
      * Ad node list
@@ -19,15 +36,20 @@ class Document extends AbstractNode
      */
     private $vastAdNodeList = array();
 
-    /** @var Factory */
+    /**
+     * @deprecated
+     *
+     * @var Factory
+     */
     private static $documentFactory;
 
     /**
      * @param \DOMDocument $DOMDocument
      */
-    public function __construct(\DOMDocument $DOMDocument)
+    public function __construct(\DOMDocument $DOMDocument, ElementBuilder $vastElementBuilder)
     {
         $this->domDocument = $DOMDocument;
+        $this->vastElementBuilder = $vastElementBuilder;
     }
 
     /**
@@ -77,16 +99,15 @@ class Document extends AbstractNode
      *
      * @throws \InvalidArgumentException
      *
-     * @return AbstractAdNode
+     * @return AbstractAdNode|InLine|Wrapper
      */
     private function createAdSection($type)
     {
         // Check Ad type
-        $adTypeClassName = '\\OpiyOrg\\Vast\\Ad\\' . $type;
-        if (!class_exists($adTypeClassName)) {
+        if (!in_array($type, array(self::AD_SUB_ELEMENT_INLINE, self::AD_SUB_ELEMENT_WRAPPER))) {
             throw new \InvalidArgumentException(sprintf('Ad type %s not supported', $type));
         }
-        
+
         // create dom node
         $adDomElement = $this->domDocument->createElement('Ad');
         $this->domDocument->documentElement->appendChild($adDomElement);
@@ -94,10 +115,19 @@ class Document extends AbstractNode
         // create type element
         $adTypeDomElement = $this->domDocument->createElement($type);
         $adDomElement->appendChild($adTypeDomElement);
-        
+
         // create ad section
-        $adSection = new $adTypeClassName($adDomElement);
-        
+        switch ($type) {
+            case self::AD_SUB_ELEMENT_INLINE:
+                $adSection = $this->vastElementBuilder->createInLineAdNode($adDomElement);
+                break;
+            case self::AD_SUB_ELEMENT_WRAPPER:
+                $adSection = $this->vastElementBuilder->createWrapperAdNode($adDomElement);
+                break;
+            default:
+                throw new \InvalidArgumentException(sprintf('Ad type %s not supported', $type));
+        }
+
         // cache
         $this->vastAdNodeList[] = $adSection;
         
@@ -111,7 +141,7 @@ class Document extends AbstractNode
      */
     public function createInLineAdSection()
     {
-        return $this->createAdSection('InLine');
+        return $this->createAdSection(self::AD_SUB_ELEMENT_INLINE);
     }
     
     /**
@@ -121,7 +151,7 @@ class Document extends AbstractNode
      */
     public function createWrapperAdSection()
     {
-        return $this->createAdSection('Wrapper');
+        return $this->createAdSection(self::AD_SUB_ELEMENT_WRAPPER);
     }
 
     /**
@@ -156,12 +186,18 @@ class Document extends AbstractNode
                 $type = $node->tagName;
 
                 // create ad section
-                $adTypeClassName = '\\OpiyOrg\\Vast\\Ad\\' . $type;
-                if (!class_exists($adTypeClassName)) {
-                    throw new \Exception('Ad type ' . $type . ' not supported');
+                switch ($type) {
+                    case self::AD_SUB_ELEMENT_INLINE:
+                        $adSection = $this->vastElementBuilder->createInLineAdNode($adDomElement);
+                        break;
+                    case self::AD_SUB_ELEMENT_WRAPPER:
+                        $adSection = $this->vastElementBuilder->createWrapperAdNode($adDomElement);
+                        break;
+                    default:
+                        throw new \Exception('Ad type ' . $type . ' not supported');
                 }
 
-                $this->vastAdNodeList[] = new $adTypeClassName($adDomElement);
+                $this->vastAdNodeList[] = $adSection;
             }
         }
         

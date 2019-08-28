@@ -22,7 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "OpiyOrg\\Vast\\": ["src/", "tests/"]
+            "OpiyOrg\\Vast\\": ["src/"]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sokil\\Vast\\": ["tests/"]
         }
     },
     "scripts": {

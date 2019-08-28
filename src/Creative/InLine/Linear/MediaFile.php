@@ -7,10 +7,12 @@ class MediaFile
     const DELIVERY_PROGRESSIVE = 'progressive';
     const DELIVERY_STREAMING = 'streaming';
 
+    /**
+     * @var \DomElement
+     */
     private $domElement;
 
     /**
-     * MediaFile constructor.
      * @param \DomElement $domElement
      */
     public function __construct(\DomElement $domElement)
@@ -18,29 +20,18 @@ class MediaFile
         $this->domElement = $domElement;
     }
 
-    /**
-     * @return $this
-     */
     public function setProgressiveDelivery()
     {
         $this->domElement->setAttribute('delivery', self::DELIVERY_PROGRESSIVE);
         return $this;
     }
 
-    /**
-     * @return $this
-     */
     public function setStreamingDelivery()
     {
         $this->domElement->setAttribute('delivery', self::DELIVERY_STREAMING);
         return $this;
     }
 
-    /**
-     * @param $delivery
-     * @return $this
-     * @throws \Exception
-     */
     public function setDelivery($delivery)
     {
         if (!in_array($delivery, array(self::DELIVERY_PROGRESSIVE, self::DELIVERY_STREAMING))) {
@@ -51,31 +42,18 @@ class MediaFile
         return $this;
     }
 
-
-    /**
-     * @param $mime
-     * @return $this
-     */
     public function setType($mime)
     {
         $this->domElement->setAttribute('type', $mime);
         return $this;
     }
 
-    /**
-     * @param $width
-     * @return $this
-     */
     public function setWidth($width)
     {
         $this->domElement->setAttribute('width', $width);
         return $this;
     }
 
-    /**
-     * @param $height
-     * @return $this
-     */
     public function setHeight($height)
     {
         $this->domElement->setAttribute('height', $height);
@@ -113,7 +91,7 @@ class MediaFile
 
     /**
      * @param int $bitrate
-     * @return MediaFile
+     * @return $this
      */
     public function setBitrate($bitrate)
     {
@@ -121,6 +99,18 @@ class MediaFile
         return $this;
     }
 
+    /**
+     * Please note that this attribute is deprecated since VAST 4.1 along with VPAID
+     *
+     * @param string $value
+     * @return $this
+     */
+    public function setApiFramework($value)
+    {
+        $this->domElement->setAttribute('apiFramework', (string) $value);
+
+        return $this;
+    }
 
     /**
      * Get id for Ad element
@@ -145,5 +135,4 @@ class MediaFile
 
         return $this;
     }
-
 }

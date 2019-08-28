@@ -5,6 +5,23 @@ namespace OpiyOrg\Vast;
 class Factory
 {
     /**
+     * @var ElementBuilder
+     */
+    private $vastElementBuilder;
+
+    /**
+     * @param ElementBuilder $vastElementBuilder
+     */
+    public function __construct(ElementBuilder $vastElementBuilder = null)
+    {
+        if ($vastElementBuilder === null) {
+            $vastElementBuilder = new ElementBuilder();
+        }
+
+        $this->vastElementBuilder = $vastElementBuilder;
+    }
+
+    /**
      * Create new VAST document
      *
      * @param string $vastVersion
@@ -25,7 +42,7 @@ class Factory
         $root->appendChild($vastVersionAttribute);
 
         // return
-        return new Document($xml);
+        return $this->vastElementBuilder->createDocument($xml);
     }
 
     /**
@@ -40,7 +57,7 @@ class Factory
         $xml = $this->createDomDocument();
         $xml->load($filename);
 
-        return new Document($xml);
+        return $this->vastElementBuilder->createDocument($xml);
     }
 
     /**
@@ -55,7 +72,7 @@ class Factory
         $xml = $this->createDomDocument();
         $xml->loadXml($xmlString);
 
-        return new Document($xml);
+        return $this->vastElementBuilder->createDocument($xml);
     }
 
     /**
