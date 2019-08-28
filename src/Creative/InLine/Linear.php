@@ -35,9 +35,15 @@ class Linear extends AbstractLinearCreative
         }
 
         // set value
-        if (is_numeric($duration)) {
-            // in seconds
+        if (is_numeric($duration)) { // in seconds
+            $msDuration = $duration - (int)$duration;
+
             $duration = $this->secondsToString($duration);
+            if ($msDuration > 0) {
+                $msDuration = explode('.', $msDuration);
+                $msDuration = str_pad($msDuration[1], 3, '0', STR_PAD_RIGHT);
+                $duration .= '.' . substr($msDuration, 0, 3);
+            }
         }
 
         $durationDomElement->nodeValue = $duration;
