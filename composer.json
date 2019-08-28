@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sokil\\Vast\\": ["tests/"]
+            "OpiyOrg\\Vast\\": ["tests/"]
         }
     },
     "scripts": {
